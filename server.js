@@ -17,6 +17,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("Expense Tracker API Running");
+});
+
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
