@@ -6,6 +6,4 @@
   "routes": [
     { "src": "/(.*)", "dest": "server.js" }
   ]
-}git add .
-git commit -m "fix server for vercel"
-git push
+}
