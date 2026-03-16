@@ -36,5 +36,8 @@ if (process.env.NODE_ENV === "production") {
 
 const PORT = process.env.PORT || 5000;
 
+app.get("/", (req, res) => {
+  res.json({ message: "API Running" });
+});
 
 module.exports = app;
