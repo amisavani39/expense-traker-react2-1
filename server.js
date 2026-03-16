@@ -2,13 +2,6 @@ const path = require("path");
 
 const express = require("express");
 const cors = require("cors");
-const corsConfig = {
-  origin:"*",
-  Credential:true,
-  methods:["GET","POST","PUT","DELETE"],
-
-};
-app.options("",cors(corsConfig));
 const dotenv = require("dotenv");
 const colors = require("colors");
 const morgan = require("morgan");
@@ -22,7 +15,7 @@ const transaction = require("./routes/transcation");
 const app = express();
 
 app.use(express.json());
-app.use(cors(corsConfig));
+app.use(cors());
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
