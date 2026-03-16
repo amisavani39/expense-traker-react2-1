@@ -23,9 +23,12 @@ if (process.env.NODE_ENV === "development") {
 
 app.use("/api/v1/transcation", transaction);
 
-//app.get("/", (req, res) => res.send("Hello"));
+// Test route
+app.get("/", (req, res) => {
+  res.json({ message: "API Working" });
+});
 
-//build
+// Production build
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
@@ -34,13 +37,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const PORT = process.env.PORT || 5000;
+// ❌ REMOVE app.listen()
+// Vercel handles the server automatically
 
-app.listen(
-  PORT,
-  console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow
-      .bold,
-  ),
-);
 module.exports = app;
